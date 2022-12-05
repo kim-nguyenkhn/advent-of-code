@@ -26,7 +26,7 @@ class CampCleanup
   end
 
   def pair_intersection?(pair)
-    if (pair.first - pair.last).empty? || (pair.last - pair.first).empty?
+    if (pair.first - pair.last) != pair.first || (pair.last - pair.first) != pair.last
       self.intersecting_pairs += 1
       true
     else
