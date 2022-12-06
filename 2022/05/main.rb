@@ -64,7 +64,7 @@ class SupplyStacks
     movable_list = crates[from].shift(count)
     # puts movable_list.to_s
 
-    movable_list.each do |crate|
+    movable_list.reverse.each do |crate|
       # puts crate
       crates[to].unshift crate
     end
