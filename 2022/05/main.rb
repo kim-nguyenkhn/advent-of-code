@@ -13,9 +13,6 @@ class SupplyStacks
   def begin_building
     instructions_starting_index = build_crates
     perform_instructions(instructions_starting_index)
-
-    puts self.crates
-    puts get_top_crates_string
   end
 
   def build_crates
@@ -41,7 +38,6 @@ class SupplyStacks
 
             crates[crate_idx].push(char)
           end
-          # puts "char: #{char}, crate_idx: #{crate_idx}"
         end
       end
     end
@@ -59,18 +55,11 @@ class SupplyStacks
   end
 
   def move(count, from, to)
-    # puts "move #{count} from #{from} to #{to}"
-
     movable_list = crates[from].shift(count)
-    # puts movable_list.to_s
 
     movable_list.reverse.each do |crate|
-      # puts crate
       crates[to].unshift crate
     end
-
-    # puts "crates: #{crates}"
-    # puts
   end
 
   def get_top_crates_string
@@ -81,3 +70,7 @@ class SupplyStacks
 end
 
 ss = SupplyStacks.new
+puts ss.crates
+
+result = ss.get_top_crates_string
+puts result
